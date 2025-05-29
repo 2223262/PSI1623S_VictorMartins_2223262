@@ -15,6 +15,7 @@ namespace _DigiAirlines
     public partial class Login : Form
     {
         string connString = "Server=(localdb)\\MSSQLLocalDB;Database=DigiAirlines;Trusted_Connection=True;";
+        public static int UsuarioLogadoId { get; set; }
         public Login()
         {
             InitializeComponent();
