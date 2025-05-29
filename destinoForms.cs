@@ -132,112 +132,110 @@ namespace _DigiAirlines
             label5.Visible = marcado;
         }
 
+        private int usuarioId = 1; // Exemplo: deve vir do seu fluxo de login
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            reciboForms forms4 = new reciboForms();
-            // 1) Extrai origem e destino dos dois textboxes:
-            //    txSearch     → "PaísOrigem - CidadeOrigem"
-            //    guna2TextBox1→ "PaísDestino - CidadeDestino"
+            // 1) Valida seleções de origem/destino
             if (!txSearch.Text.Contains(" - ") || !guna2TextBox1.Text.Contains(" - "))
             {
-                MessageBox.Show("Selecione primeiro origem e destino nas grids.",
-                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione Origem e Destino.", "Aviso",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            var partsOrigem = txSearch.Text.Split(new[] { " - " }, StringSplitOptions.None);
-            var partsDestino = guna2TextBox1.Text.Split(new[] { " - " }, StringSplitOptions.None);
-
-            string paisOrig = partsOrigem[0].Trim();
-            string cidadeOrig = partsOrigem[1].Trim();
-            string paisDest = partsDestino[0].Trim();
-            string cidadeDest = partsDestino[1].Trim();
+            var partsO = txSearch.Text.Split(new[] { " - " }, StringSplitOptions.None);
+            var partsD = guna2TextBox1.Text.Split(new[] { " - " }, StringSplitOptions.None);
+            string po = partsO[0].Trim(), co = partsO[1].Trim();
+            string pd = partsD[0].Trim(), cd = partsD[1].Trim();
 
             // 2) Datas
-            DateTime dataIda = DateTimePicker1.Value;
-            DateTime dataRetorno = guna2DateTimePicker1.Value;
+            DateTime dataIda = DateTimePicker1.Value.Date;
+            DateTime dataRetorno = guna2DateTimePicker1.Visible
+                                    ? guna2DateTimePicker1.Value.Date
+                                    : (DateTime?)null ?? dataIda;
 
             // 3) Classe de assento
-            var classe = guna2ComboBox1.SelectedItem as string;
+            string classe = guna2ComboBox1.SelectedItem as string;
             if (string.IsNullOrEmpty(classe))
             {
-                MessageBox.Show("Escolha o tipo de assento.", "Aviso",
+                MessageBox.Show("Escolha a classe de assento.", "Aviso",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 4) Preço base: vamos buscar da tabela Destino (origem→destino)
-            decimal precoBase = 0;
-            using (var connPre = new SqlConnection(connString))
-            using (var cmdPre = connPre.CreateCommand())
+            // 4) Garante ClienteId (insere se necessário)
+            int clienteId;
+            using (var conn = new SqlConnection(connString))
+            using (var cmd = conn.CreateCommand())
             {
-                connPre.Open();
-                cmdPre.CommandText = @"
-          SELECT Preco 
-            FROM Destino 
-           WHERE Pais = @po  AND Cidade = @co
-             AND Pais = @pd  AND Cidade = @cd";
-                cmdPre.Parameters.AddWithValue("@po", paisOrig);
-                cmdPre.Parameters.AddWithValue("@co", cidadeOrig);
-                cmdPre.Parameters.AddWithValue("@pd", paisDest);
-                cmdPre.Parameters.AddWithValue("@cd", cidadeDest);
-
-                var obj = cmdPre.ExecuteScalar();
-                precoBase = (obj == null ? 0 : Convert.ToDecimal(obj));
+                cmd.CommandText = @"
+IF EXISTS(SELECT 1 FROM Cliente WHERE UsuarioId = @u)
+    SELECT Id FROM Cliente WHERE UsuarioId = @u;
+ELSE
+BEGIN
+    INSERT INTO Cliente (Nome, Documento, UsuarioId)
+    VALUES (@nome, @doc, @u);
+    SELECT SCOPE_IDENTITY();
+END";
+                cmd.Parameters.AddWithValue("@u", usuarioId);
+                // estes campos você precisaria coletar: nome e documento do cliente
+                cmd.Parameters.AddWithValue("@nome", "Nome do Cliente");
+                cmd.Parameters.AddWithValue("@doc", "000000000");
+                conn.Open();
+                clienteId = Convert.ToInt32(cmd.ExecuteScalar());
             }
 
-            // 5) Insere o voo
+            // 5) Insere o Voo e obtém o VooId
             int vooId;
             using (var conn = new SqlConnection(connString))
             using (var cmd = conn.CreateCommand())
             {
-                conn.Open();
                 cmd.CommandText = @"
-          INSERT INTO Voo
-            (PaisOrigem, CidadeOrigem, PaisDestino, CidadeDestino, DataHora, PrecoBase)
-          VALUES
-            (@po, @co, @pd, @cd, @dh, @preco);
-          SELECT SCOPE_IDENTITY();
-        ";
-                cmd.Parameters.AddWithValue("@po", paisOrig);
-                cmd.Parameters.AddWithValue("@co", cidadeOrig);
-                cmd.Parameters.AddWithValue("@pd", paisDest);
-                cmd.Parameters.AddWithValue("@cd", cidadeDest);
+INSERT INTO Voo
+  (PaisOrigem, CidadeOrigem, PaisDestino, CidadeDestino, DataHora, PrecoBase)
+VALUES
+  (@po, @co, @pd, @cd, @dh, 0);
+SELECT SCOPE_IDENTITY();";
+                cmd.Parameters.AddWithValue("@po", po);
+                cmd.Parameters.AddWithValue("@co", co);
+                cmd.Parameters.AddWithValue("@pd", pd);
+                cmd.Parameters.AddWithValue("@cd", cd);
                 cmd.Parameters.AddWithValue("@dh", dataIda);
-                cmd.Parameters.AddWithValue("@preco", precoBase);
-
+                conn.Open();
                 vooId = Convert.ToInt32(cmd.ExecuteScalar());
             }
 
-            // 6) Recupera o ClienteId (por ex. do login; aqui uso o PerfilDefault = 1)
-            int clienteId = 1; // ou carregue de onde você guardou após o login
-
-            // 7) Insere Reserva (incluindo data de retorno)
-            using (var connR = new SqlConnection(connString))
-            using (var cmdR = connR.CreateCommand())
+            // 6) Insere a Reserva
+            using (var conn = new SqlConnection(connString))
+            using (var cmd = conn.CreateCommand())
             {
-                connR.Open();
-                cmdR.CommandText = @"
-          INSERT INTO Reserva
-            (ClienteId, VooId, Classe, Assento, DataReserva, DataRetorno)
-          VALUES
-            (@cli, @voo, @classe, @assento, GETDATE(), @retorno);
-        ";
-                cmdR.Parameters.AddWithValue("@cli", clienteId);
-                cmdR.Parameters.AddWithValue("@voo", vooId);
-                cmdR.Parameters.AddWithValue("@classe", classe);
-                cmdR.Parameters.AddWithValue("@assento", ""); // você não tem txtAssento: poderia usar uma combo ou gerar automático
-                cmdR.Parameters.AddWithValue("@retorno", dataRetorno);
+                cmd.CommandText = @"
+INSERT INTO Reserva
+  (ClienteId, VooId, Classe, Assento, DataReserva, DataRetorno)
+VALUES
+  (@cli, @voo, @classe, @assento, GETDATE(), @retorno);";
+                cmd.Parameters.AddWithValue("@cli", clienteId);
+                cmd.Parameters.AddWithValue("@voo", vooId);
+                cmd.Parameters.AddWithValue("@classe", classe);
+                cmd.Parameters.AddWithValue("@assento", "");  // se tiver controle de assento, substitua aqui
+                cmd.Parameters.AddWithValue("@retorno", dataRetorno);
 
-                int linhas = cmdR.ExecuteNonQuery();
+                conn.Open();
+                int linhas = cmd.ExecuteNonQuery();
                 if (linhas > 0)
                     MessageBox.Show("Reserva concluída!", "Sucesso",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Falha ao reservar.", "Erro",
+                    MessageBox.Show("Falha ao criar reserva.", "Erro",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            // 7) Abre recibo
+            var recibo = new reciboForms();
+            recibo.Show();
+            this.Close();
         }
+
 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
