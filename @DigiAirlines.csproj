@@ -149,6 +149,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="reciboForms.resx">
+      <DependentUpon>reciboForms.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,6 +192,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bibhash-polygon-cafe-banerjee-DjuV94_esTc-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seta-direita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seta-direita1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seta-direita2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

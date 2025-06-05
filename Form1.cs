@@ -18,8 +18,9 @@ namespace _DigiAirlines
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CriarContaForm form2 = new CriarContaForm();
-            form2.Show();
             this.Hide();
+            form2.Show();
+            this.Close();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

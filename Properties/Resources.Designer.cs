@@ -93,6 +93,16 @@ namespace _DigiAirlines.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bibhash_polygon_cafe_banerjee_DjuV94_esTc_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("bibhash-polygon-cafe-banerjee-DjuV94_esTc-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChatGPT_Image_5_05_2025__16_02_23 {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image 5_05_2025, 16_02_23", resourceCulture);
@@ -106,6 +116,16 @@ namespace _DigiAirlines.Properties {
         internal static System.Drawing.Bitmap ChatGPT_Image_5_05_2025__16_02_23_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT_Image_5_05_2025__16_02_23-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clock {
+            get {
+                object obj = ResourceManager.GetObject("clock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +156,36 @@ namespace _DigiAirlines.Properties {
         internal static System.Drawing.Bitmap pexels_zoedoingthings_1006965_resized {
             get {
                 object obj = ResourceManager.GetObject("pexels-zoedoingthings-1006965_resized", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta_direita {
+            get {
+                object obj = ResourceManager.GetObject("seta-direita", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta_direita1 {
+            get {
+                object obj = ResourceManager.GetObject("seta-direita1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta_direita2 {
+            get {
+                object obj = ResourceManager.GetObject("seta-direita2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
