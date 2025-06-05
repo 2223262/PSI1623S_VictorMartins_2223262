@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,17 +16,15 @@ namespace _DigiAirlines
     {
         private int _reservaId;
         private string connString = "Server=(localdb)\\MSSQLLocalDB;Database=DigiAirlines;Trusted_Connection=True;";
-        private Random random = new Random(); // Para gerar horas aleatórias
+        private Random random = new Random();
 
-        // Construtor que recebe o ID da reserva
         public reciboForms(int reservaId)
         {
             InitializeComponent();
             _reservaId = reservaId;
-            this.Load += ReciboForms_Load; // Associa o evento Load
+            this.Load += ReciboForms_Load;
         }
 
-        // Construtor padrão para o designer
         public reciboForms()
         {
             InitializeComponent();
@@ -39,15 +38,33 @@ namespace _DigiAirlines
             }
         }
 
+        // NOVO: Método auxiliar para calcular o preço final com base na classe
+        private decimal CalcularPrecoComClasse(decimal precoBase, string classe)
+        {
+            switch (classe)
+            {
+                case "Executiva":
+                    return precoBase * 1.25m; // Aumento de 25%
+                case "Primeira-classe":
+                    return precoBase * 1.50m; // Aumento de 50%
+                case "Econômica":
+                default:
+                    return precoBase; // Sem alteração de preço
+            }
+        }
+
         private void CarregarDadosNosLabels()
         {
-            // Começa por esconder todos os labels relacionados com a viagem de volta
-            // NOTA: Você também precisará esconder os títulos estáticos (ex: um label com o texto "Origem Volta:")
+            // Esconder controlos da volta por defeito
             lblOrigemVolta.Visible = false;
             lblDestinoVolta.Visible = false;
             lblDataVolta.Visible = false;
             lblHrVooVolta.Visible = false;
             lblClasseVolta.Visible = false;
+            label3.Visible = false;
+            // Se tiver os PictureBoxes, adicione aqui as linhas para os esconder também
+            // guna2PictureBox3.Visible = false;
+            // guna2CirclePictureBox2.Visible = false;
 
             try
             {
@@ -59,13 +76,16 @@ namespace _DigiAirlines
                             v.PaisOrigem, v.CidadeOrigem,
                             v.PaisDestino, v.CidadeDestino,
                             v.DataHora AS DataViagem,
-                            v.PrecoBase,
                             r.Classe,
                             r.DataReserva AS DataCompra,
-                            r.DataRetorno
+                            r.DataRetorno,
+                            DestinoIda.Preco AS PrecoIda,
+                            DestinoVolta.Preco AS PrecoVolta
                         FROM Reserva r
                         JOIN Cliente c ON r.ClienteId = c.Id
                         JOIN Voo v ON r.VooId = v.Id
+                        LEFT JOIN Destino AS DestinoIda ON v.PaisDestino = DestinoIda.Pais AND v.CidadeDestino = DestinoIda.Cidade
+                        LEFT JOIN Destino AS DestinoVolta ON v.PaisOrigem = DestinoVolta.Pais AND v.CidadeOrigem = DestinoVolta.Cidade
                         WHERE r.Id = @reservaId";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -76,47 +96,59 @@ namespace _DigiAirlines
                         SqlDataReader reader = cmd.ExecuteReader();
                         if (reader.Read())
                         {
-                            // --- Preencher Labels Gerais e de IDA ---
+                            string classeViagem = reader["Classe"].ToString();
 
-                            // Cabeçalho e Informações Gerais
+                            // Preencher Labels Gerais e de IDA
                             lblNomeUtilizador.Text = reader["NomeCliente"].ToString();
                             DateTime dataCompra = Convert.ToDateTime(reader["DataCompra"]);
-                            lblDataCompra.Text = dataCompra.ToString("dd/MM/yyyy HH:mm"); // Hora real da compra
-                            lblDataCabecario.Text = dataCompra.ToString("dd/MM/yyyy"); // Apenas data para o cabeçalho
+                            lblDataCompra.Text = dataCompra.ToString("dd/MM/yyyy HH:mm");
+                            lblDataCabecario.Text = dataCompra.ToString("dd/MM/yyyy");
 
-                            // Informações do Voo de IDA
                             lblOrigem.Text = $"{reader["CidadeOrigem"]}, {reader["PaisOrigem"]}";
                             lblDestino.Text = $"{reader["CidadeDestino"]}, {reader["PaisDestino"]}";
                             lblData.Text = Convert.ToDateTime(reader["DataViagem"]).ToString("dd/MM/yyyy");
-                            lblClasse.Text = reader["Classe"].ToString();
+                            lblClasse.Text = classeViagem;
 
-                            // Gerar hora aleatória para o voo de ida
                             TimeSpan horaVooIda = new TimeSpan(random.Next(8, 22), random.Next(0, 12) * 5, 0);
                             lblHrVoo.Text = horaVooIda.ToString(@"hh\:mm");
 
-                            // Total
-                            lblTotal.Text = $"{Convert.ToDecimal(reader["PrecoBase"]):C}"; // Formata como moeda (€)
+                            // --- LÓGICA DE PREÇO ATUALIZADA ---
+                            decimal precoBaseIda = reader["PrecoIda"] != DBNull.Value ? Convert.ToDecimal(reader["PrecoIda"]) : 0;
+                            decimal precoFinalIda = CalcularPrecoComClasse(precoBaseIda, classeViagem);
+                            decimal precoTotal = precoFinalIda;
 
-                            // --- Preencher Labels de VOLTA (se houver) ---
+                            // Preencher Labels de VOLTA (se houver)
                             if (reader["DataRetorno"] != DBNull.Value)
                             {
-                                // Torna os labels de volta visíveis
+                                // Torna os controlos de volta visíveis
                                 lblOrigemVolta.Visible = true;
                                 lblDestinoVolta.Visible = true;
                                 lblDataVolta.Visible = true;
                                 lblHrVooVolta.Visible = true;
                                 lblClasseVolta.Visible = true;
+                                label3.Visible = true;
+                                // Se tiver os PictureBoxes, adicione aqui as linhas para os mostrar
+                                // guna2PictureBox3.Visible = true;
+                                // guna2CirclePictureBox2.Visible = true;
 
-                                // Preenche os dados da volta (origem e destino invertidos)
+                                // Preenche os dados da volta
                                 lblOrigemVolta.Text = $"{reader["CidadeDestino"]}, {reader["PaisDestino"]}";
                                 lblDestinoVolta.Text = $"{reader["CidadeOrigem"]}, {reader["PaisOrigem"]}";
                                 lblDataVolta.Text = Convert.ToDateTime(reader["DataRetorno"]).ToString("dd/MM/yyyy");
-                                lblClasseVolta.Text = reader["Classe"].ToString();
+                                lblClasseVolta.Text = classeViagem;
 
-                                // Gerar hora aleatória para o voo de volta
                                 TimeSpan horaVooVolta = new TimeSpan(random.Next(8, 22), random.Next(0, 12) * 5, 0);
                                 lblHrVooVolta.Text = horaVooVolta.ToString(@"hh\:mm");
+
+                                // Soma o preço da volta (já com o ajuste da classe) ao total
+                                decimal precoBaseVolta = reader["PrecoVolta"] != DBNull.Value ? Convert.ToDecimal(reader["PrecoVolta"]) : 0;
+                                decimal precoFinalVolta = CalcularPrecoComClasse(precoBaseVolta, classeViagem);
+                                precoTotal += precoFinalVolta;
                             }
+
+                            // Formata e exibe o preço total em Euros
+                            CultureInfo culturaEuro = new CultureInfo("pt-PT");
+                            lblTotal.Text = precoTotal.ToString("C", culturaEuro);
                         }
                         else
                         {
