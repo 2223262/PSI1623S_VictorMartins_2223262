@@ -229,7 +229,7 @@ namespace _DigiAirlines
 
         private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            if (guna2DateTimePicker1.Value.Date < DateTime.Today)
+            if (guna2DateTimePicker1.Value.Date < DateTime.Today || guna2DateTimePicker1.Value.Date < DateTimePicker1.Value.Date)
             {
                 MessageBox.Show("Data inválida! Apenas datas a partir de hoje.", "Aviso",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);

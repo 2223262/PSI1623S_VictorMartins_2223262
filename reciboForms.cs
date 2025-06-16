@@ -62,6 +62,8 @@ namespace _DigiAirlines
             lblHrVooVolta.Visible = false;
             lblClasseVolta.Visible = false;
             label3.Visible = false;
+            guna2PictureBox3.Visible = false;
+            guna2CirclePictureBox2.Visible = false;
             // Se tiver os PictureBoxes, adicione aqui as linhas para os esconder também
             // guna2PictureBox3.Visible = false;
             // guna2CirclePictureBox2.Visible = false;
@@ -127,6 +129,8 @@ namespace _DigiAirlines
                                 lblHrVooVolta.Visible = true;
                                 lblClasseVolta.Visible = true;
                                 label3.Visible = true;
+                                guna2PictureBox3.Visible = true;
+                                guna2CirclePictureBox2.Visible = true;
                                 // Se tiver os PictureBoxes, adicione aqui as linhas para os mostrar
                                 // guna2PictureBox3.Visible = true;
                                 // guna2CirclePictureBox2.Visible = true;
@@ -201,6 +205,11 @@ namespace _DigiAirlines
         }
 
         private void lblDestinoVolta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -20,7 +20,7 @@ namespace _DigiAirlines
             CriarContaForm form2 = new CriarContaForm();
             this.Hide();
             form2.Show();
-            this.Close();
+            
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
