@@ -104,6 +104,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminForms.Designer.cs">
+      <DependentUpon>adminForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="CriarContaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     <Compile Include="reciboForms.Designer.cs">
       <DependentUpon>reciboForms.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="adminForms.resx">
+      <DependentUpon>adminForms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CriarContaForm.resx">
       <DependentUpon>CriarContaForm.cs</DependentUpon>
     </EmbeddedResource>
