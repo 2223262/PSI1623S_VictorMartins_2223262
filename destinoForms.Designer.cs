@@ -239,7 +239,7 @@
             "Primeira-classe"});
             this.guna2ComboBox1.Location = new System.Drawing.Point(76, 662);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(167, 36);
+            this.guna2ComboBox1.Size = new System.Drawing.Size(246, 36);
             this.guna2ComboBox1.TabIndex = 11;
             // 
             // guna2DateTimePicker1

@@ -143,9 +143,29 @@ namespace _DigiAirlines.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap free_exit_icon_2860_thumb {
+            get {
+                object obj = ResourceManager.GetObject("free-exit-icon-2860-thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap images {
             get {
                 object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout_512 {
+            get {
+                object obj = ResourceManager.GetObject("logout-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

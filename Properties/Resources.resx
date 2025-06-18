@@ -133,6 +133,9 @@
   <data name="seta-direita2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seta-direita2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="seta-direita" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\seta-direita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user-icon-on-transparent-background-free-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-icon-on-transparent-background-free-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,13 +157,16 @@
   <data name="32736-1920x1200-desktop-hd-india-background-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\32736-1920x1200-desktop-hd-india-background-image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="seta-direita" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\seta-direita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="data-center-775ta0o0wf4nbyq3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\data-center-775ta0o0wf4nbyq3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="free-exit-icon-2860-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-exit-icon-2860-thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="data-center-775ta0o0wf4nbyq3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\data-center-775ta0o0wf4nbyq3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logout-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

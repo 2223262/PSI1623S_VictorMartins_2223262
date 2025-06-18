@@ -221,5 +221,11 @@
   <ItemGroup>
     <None Include="Resources\data-center-775ta0o0wf4nbyq3.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-exit-icon-2860-thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
