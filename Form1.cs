@@ -54,7 +54,7 @@ namespace _DigiAirlines
                         reader.Close();
                         this.Hide(); // Esconde o formulário de login
 
-                        // --- LÓGICA DE DIRECIONAMENTO ---
+                        // --- LÓGICA DE DIRECIONAMENTO ATUALIZADA ---
                         if (ClienteLogadoPerfilId == 2) // O ID 2 é para 'Admin'
                         {
                             // Se for Admin, abre o adminForms
@@ -64,9 +64,9 @@ namespace _DigiAirlines
                         }
                         else
                         {
-                            // Se for um utilizador normal, abre o destinoForms
-                            destinoForms form3 = new destinoForms();
-                            form3.Show();
+                            // Se for um utilizador normal, abre o novo menuForms
+                            menuForms formMenu = new menuForms();
+                            formMenu.Show();
                         }
                     }
                     else
@@ -91,5 +91,4 @@ namespace _DigiAirlines
         private void panel1_Paint(object sender, PaintEventArgs e) { }
         private void pictureBox1_Click(object sender, EventArgs e) { }
     }
-
 }

@@ -239,5 +239,15 @@ namespace _DigiAirlines.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wp4728074_airplane_aesthetic_wallpapers {
+            get {
+                object obj = ResourceManager.GetObject("wp4728074-airplane-aesthetic-wallpapers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
