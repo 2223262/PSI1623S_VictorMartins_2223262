@@ -6,7 +6,7 @@ namespace _DigiAirlines
 {
     public partial class menuForms : Form
     {
-        private Timer relogioTimer; // Componente para atualizar o relógio
+        private Timer relogioTimer;
         private string connString = "Server=(localdb)\\MSSQLLocalDB;Database=DigiAirlines;Trusted_Connection=True;";
         private int clienteId = Login.ClienteLogadoId;
         private string nomeCliente = "";
@@ -14,24 +14,19 @@ namespace _DigiAirlines
         public menuForms()
         {
             InitializeComponent();
-            this.Load += MenuForms_Load; // Associa o evento Load
+            this.Load += MenuForms_Load;
         }
 
         private void MenuForms_Load(object sender, EventArgs e)
         {
-            // Busca o nome do cliente na base de dados
             BuscarNomeCliente();
-
-            // Configura a saudação
             ConfigurarSaudacao();
 
-            // Configura e inicia o Timer para o relógio
             relogioTimer = new Timer();
-            relogioTimer.Interval = 1000; // O timer dispara a cada 1000 ms (1 segundo)
+            relogioTimer.Interval = 1000;
             relogioTimer.Tick += RelogioTimer_Tick;
             relogioTimer.Start();
 
-            // Atualiza a hora uma vez no início
             AtualizarRelogio();
         }
 
@@ -57,32 +52,22 @@ namespace _DigiAirlines
             catch (Exception ex)
             {
                 MessageBox.Show("Não foi possível obter os dados do utilizador: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                nomeCliente = "Cliente"; // Valor padrão em caso de erro
+                nomeCliente = "Cliente";
             }
         }
 
         private void ConfigurarSaudacao()
         {
             int horaAtual = DateTime.Now.Hour;
-            string saudacao;
+            string saudacao = "Olá";
 
-            if (horaAtual >= 6 && horaAtual < 12)
-            {
-                saudacao = "Bom dia";
-            }
-            else if (horaAtual >= 12 && horaAtual < 20)
-            {
-                saudacao = "Boa tarde";
-            }
-            else
-            {
-                saudacao = "Boa noite";
-            }
+            if (horaAtual >= 6 && horaAtual < 12) { saudacao = "Bom dia"; }
+            else if (horaAtual >= 12 && horaAtual < 20) { saudacao = "Boa tarde"; }
+            else { saudacao = "Boa noite"; }
 
-            lblComprimentoUtilizador.Text = $"{saudacao}, {nomeCliente}!";
+            lblComprimentoUtilizador.Text = $"{saudacao} {nomeCliente}☺";
         }
 
-        // Este evento é chamado a cada segundo pelo Timer
         private void RelogioTimer_Tick(object sender, EventArgs e)
         {
             AtualizarRelogio();
@@ -90,34 +75,46 @@ namespace _DigiAirlines
 
         private void AtualizarRelogio()
         {
-            // Atualiza o texto do label do relógio com a hora, minutos e segundos atuais
             lblRelogioReal.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
-        // --- EVENTOS DE CLIQUE PARA OS BOTÕES DO MENU ---
+        // --- EVENTOS DE CLIQUE PARA OS BOTÕES DO MENU (ATUALIZADOS) ---
 
         private void guna2Button1_Click(object sender, EventArgs e) // Nova Reserva
         {
+
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
             destinoForms formReservas = new destinoForms();
-            formReservas.ShowDialog(); // ShowDialog foca no formulário de reserva
+            this.Hide(); // Esconde o menu atual
+            formReservas.FormClosed += (s, args) => this.Show();
+            formReservas.ShowDialog();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e) // Minhas Reservas
         {
-            // Nota: Certifique-se de que o seu formulário de histórico se chama 'HistoricoClienteForm'
-            // ou altere o nome da classe abaixo para corresponder ao seu.
+            // Esconde o menu, mostra o histórico, e quando o histórico for fechado, o menu volta a aparecer.
+            this.Hide();
+
+            // Nota: Se o seu formulário de histórico se chamar 'minhasReservasForms', altere o nome da classe abaixo.
             minhasReservasForms formHistorico = new minhasReservasForms();
-            formHistorico.ShowDialog();
+            formHistorico.FormClosed += (s, args) => this.Show(); // Adiciona um evento para mostrar o menu quando o histórico fechar
+            formHistorico.Show();
         }
 
         private void guna2Button3_Click(object sender, EventArgs e) // Meu Perfil
         {
-            MessageBox.Show("Funcionalidade para gerir o perfil ainda não implementada.", "Em Construção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Hide();
+            // Abre o novo formulário para o perfil do utilizador.
+            meuPerfilForms formPerfil = new meuPerfilForms();
+            formPerfil.FormClosed += (s, args) => this.Show(); // Adiciona um evento para mostrar o menu quando o perfil fechar
+            formPerfil.ShowDialog();
         }
 
         private void guna2Button4_Click(object sender, EventArgs e) // Sair
         {
-            // Pede confirmação antes de fechar a aplicação
             var confirmResult = MessageBox.Show("Tem a certeza que deseja fechar a aplicação?", "Confirmar Saída", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
@@ -126,8 +123,6 @@ namespace _DigiAirlines
             }
         }
 
-
-        // Garante que a aplicação fecha se o utilizador fechar esta janela pelo "X"
         private void menuForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (relogioTimer != null)
@@ -138,15 +133,8 @@ namespace _DigiAirlines
             Application.Exit();
         }
 
-        // Os métodos abaixo podem ser deixados em branco, pois os labels não precisam de ação ao serem clicados
-        private void lblComprimentoUtilizador_Click(object sender, EventArgs e)
-        {
+        private void lblComprimentoUtilizador_Click(object sender, EventArgs e) { }
+        private void lblRelogioReal_Click(object sender, EventArgs e) { }
 
-        }
-
-        private void lblRelogioReal_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

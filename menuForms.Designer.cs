@@ -43,7 +43,7 @@
             this.lblComprimentoUtilizador.BackColor = System.Drawing.Color.Transparent;
             this.lblComprimentoUtilizador.Font = new System.Drawing.Font("Bauhaus 93", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblComprimentoUtilizador.ForeColor = System.Drawing.Color.Salmon;
-            this.lblComprimentoUtilizador.Location = new System.Drawing.Point(179, 30);
+            this.lblComprimentoUtilizador.Location = new System.Drawing.Point(171, 56);
             this.lblComprimentoUtilizador.Name = "lblComprimentoUtilizador";
             this.lblComprimentoUtilizador.Size = new System.Drawing.Size(102, 34);
             this.lblComprimentoUtilizador.TabIndex = 0;
@@ -78,6 +78,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(251, 77);
             this.guna2Button1.TabIndex = 2;
             this.guna2Button1.Text = "Nova Reserva";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
             // guna2Button2
             // 

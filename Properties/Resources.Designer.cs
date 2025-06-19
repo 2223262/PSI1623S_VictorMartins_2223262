@@ -203,6 +203,16 @@ namespace _DigiAirlines.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap purple_aesthetic_sunset_sky_over_ocean_waves_gwhfuglsilu63769 {
+            get {
+                object obj = ResourceManager.GetObject("purple-aesthetic-sunset-sky-over-ocean-waves-gwhfuglsilu63769", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap seta_direita {
             get {
                 object obj = ResourceManager.GetObject("seta-direita", resourceCulture);
@@ -236,6 +246,26 @@ namespace _DigiAirlines.Properties {
         internal static System.Drawing.Bitmap user_icon_on_transparent_background_free_png {
             get {
                 object obj = ResourceManager.GetObject("user-icon-on-transparent-background-free-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wp13404255_aesthetic_sunset_phone_wallpapers {
+            get {
+                object obj = ResourceManager.GetObject("wp13404255-aesthetic-sunset-phone-wallpapers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wp3698957_flights_wallpapers {
+            get {
+                object obj = ResourceManager.GetObject("wp3698957-flights-wallpapers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
