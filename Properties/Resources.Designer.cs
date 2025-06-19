@@ -173,6 +173,16 @@ namespace _DigiAirlines.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logout_5121 {
+            get {
+                object obj = ResourceManager.GetObject("logout-5121", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pexels_zoedoingthings_1006965 {
             get {
                 object obj = ResourceManager.GetObject("pexels-zoedoingthings-1006965", resourceCulture);

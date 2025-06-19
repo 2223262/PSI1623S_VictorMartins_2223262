@@ -54,6 +54,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -68,7 +74,7 @@
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(-1, -1);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(1292, 80);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(1473, 80);
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
@@ -80,7 +86,7 @@
             this.guna2PictureBox2.ImageRotate = 0F;
             this.guna2PictureBox2.Location = new System.Drawing.Point(63, 141);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(419, 470);
+            this.guna2PictureBox2.Size = new System.Drawing.Size(548, 550);
             this.guna2PictureBox2.TabIndex = 1;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox2_Click);
@@ -91,7 +97,7 @@
             this.lblOrigem.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblOrigem.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrigem.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblOrigem.Location = new System.Drawing.Point(126, 237);
+            this.lblOrigem.Location = new System.Drawing.Point(225, 237);
             this.lblOrigem.Name = "lblOrigem";
             this.lblOrigem.Size = new System.Drawing.Size(87, 26);
             this.lblOrigem.TabIndex = 3;
@@ -103,7 +109,7 @@
             this.lblDestino.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblDestino.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDestino.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblDestino.Location = new System.Drawing.Point(126, 330);
+            this.lblDestino.Location = new System.Drawing.Point(222, 330);
             this.lblDestino.Name = "lblDestino";
             this.lblDestino.Size = new System.Drawing.Size(90, 26);
             this.lblDestino.TabIndex = 4;
@@ -113,11 +119,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bauhaus 93", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label2.Location = new System.Drawing.Point(117, 648);
+            this.label2.Location = new System.Drawing.Point(126, 735);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 26);
+            this.label2.Size = new System.Drawing.Size(107, 39);
             this.label2.TabIndex = 5;
             this.label2.Text = "Total:";
             // 
@@ -125,11 +131,11 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotal.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Font = new System.Drawing.Font("Bauhaus 93", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.lblTotal.Location = new System.Drawing.Point(198, 648);
+            this.lblTotal.Location = new System.Drawing.Point(239, 748);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(0, 26);
+            this.lblTotal.Size = new System.Drawing.Size(0, 43);
             this.lblTotal.TabIndex = 6;
             // 
             // guna2CirclePictureBox1
@@ -137,7 +143,7 @@
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.Image = global::_DigiAirlines.Properties.Resources.clock;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(132, 455);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(131, 495);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(33, 33);
@@ -152,7 +158,7 @@
             this.lblHrVoo.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblHrVoo.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHrVoo.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblHrVoo.Location = new System.Drawing.Point(171, 455);
+            this.lblHrVoo.Location = new System.Drawing.Point(170, 502);
             this.lblHrVoo.Name = "lblHrVoo";
             this.lblHrVoo.Size = new System.Drawing.Size(24, 26);
             this.lblHrVoo.TabIndex = 8;
@@ -164,7 +170,7 @@
             this.lblData.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblData.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblData.Location = new System.Drawing.Point(126, 389);
+            this.lblData.Location = new System.Drawing.Point(128, 389);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(26, 26);
             this.lblData.TabIndex = 9;
@@ -176,7 +182,7 @@
             this.lblClasse.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClasse.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClasse.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblClasse.Location = new System.Drawing.Point(126, 522);
+            this.lblClasse.Location = new System.Drawing.Point(127, 581);
             this.lblClasse.Name = "lblClasse";
             this.lblClasse.Size = new System.Drawing.Size(75, 26);
             this.lblClasse.TabIndex = 10;
@@ -188,7 +194,7 @@
             this.lblClasseVolta.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblClasseVolta.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClasseVolta.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblClasseVolta.Location = new System.Drawing.Point(799, 531);
+            this.lblClasseVolta.Location = new System.Drawing.Point(854, 581);
             this.lblClasseVolta.Name = "lblClasseVolta";
             this.lblClasseVolta.Size = new System.Drawing.Size(75, 26);
             this.lblClasseVolta.TabIndex = 17;
@@ -200,7 +206,7 @@
             this.lblDataVolta.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblDataVolta.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataVolta.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblDataVolta.Location = new System.Drawing.Point(799, 389);
+            this.lblDataVolta.Location = new System.Drawing.Point(859, 389);
             this.lblDataVolta.Name = "lblDataVolta";
             this.lblDataVolta.Size = new System.Drawing.Size(26, 26);
             this.lblDataVolta.TabIndex = 16;
@@ -212,7 +218,7 @@
             this.lblHrVooVolta.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblHrVooVolta.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHrVooVolta.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblHrVooVolta.Location = new System.Drawing.Point(838, 455);
+            this.lblHrVooVolta.Location = new System.Drawing.Point(905, 502);
             this.lblHrVooVolta.Name = "lblHrVooVolta";
             this.lblHrVooVolta.Size = new System.Drawing.Size(24, 26);
             this.lblHrVooVolta.TabIndex = 15;
@@ -223,7 +229,7 @@
             this.guna2CirclePictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox2.Image = global::_DigiAirlines.Properties.Resources.clock;
             this.guna2CirclePictureBox2.ImageRotate = 0F;
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(799, 455);
+            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(859, 495);
             this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
             this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox2.Size = new System.Drawing.Size(33, 33);
@@ -238,7 +244,7 @@
             this.lblDestinoVolta.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblDestinoVolta.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDestinoVolta.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblDestinoVolta.Location = new System.Drawing.Point(799, 330);
+            this.lblDestinoVolta.Location = new System.Drawing.Point(955, 330);
             this.lblDestinoVolta.Name = "lblDestinoVolta";
             this.lblDestinoVolta.Size = new System.Drawing.Size(90, 26);
             this.lblDestinoVolta.TabIndex = 13;
@@ -251,7 +257,7 @@
             this.lblOrigemVolta.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblOrigemVolta.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrigemVolta.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblOrigemVolta.Location = new System.Drawing.Point(799, 237);
+            this.lblOrigemVolta.Location = new System.Drawing.Point(952, 237);
             this.lblOrigemVolta.Name = "lblOrigemVolta";
             this.lblOrigemVolta.Size = new System.Drawing.Size(87, 26);
             this.lblOrigemVolta.TabIndex = 12;
@@ -263,9 +269,9 @@
             this.guna2PictureBox3.BorderRadius = 15;
             this.guna2PictureBox3.FillColor = System.Drawing.Color.LightSteelBlue;
             this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(724, 141);
+            this.guna2PictureBox3.Location = new System.Drawing.Point(784, 141);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(419, 470);
+            this.guna2PictureBox3.Size = new System.Drawing.Size(544, 550);
             this.guna2PictureBox3.TabIndex = 11;
             this.guna2PictureBox3.TabStop = false;
             // 
@@ -274,7 +280,7 @@
             this.guna2CirclePictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox3.Image = global::_DigiAirlines.Properties.Resources.clock;
             this.guna2CirclePictureBox3.ImageRotate = 0F;
-            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(915, 23);
+            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(1069, 24);
             this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox3.Size = new System.Drawing.Size(33, 33);
@@ -289,7 +295,7 @@
             this.lblDataCabecario.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblDataCabecario.Font = new System.Drawing.Font("Bauhaus 93", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataCabecario.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblDataCabecario.Location = new System.Drawing.Point(682, 23);
+            this.lblDataCabecario.Location = new System.Drawing.Point(711, 23);
             this.lblDataCabecario.Name = "lblDataCabecario";
             this.lblDataCabecario.Size = new System.Drawing.Size(114, 34);
             this.lblDataCabecario.TabIndex = 19;
@@ -301,7 +307,7 @@
             this.lblDataCompra.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblDataCompra.Font = new System.Drawing.Font("Bauhaus 93", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataCompra.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblDataCompra.Location = new System.Drawing.Point(954, 24);
+            this.lblDataCompra.Location = new System.Drawing.Point(1120, 24);
             this.lblDataCompra.Name = "lblDataCompra";
             this.lblDataCompra.Size = new System.Drawing.Size(114, 34);
             this.lblDataCompra.TabIndex = 20;
@@ -337,7 +343,7 @@
             this.label3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label3.Font = new System.Drawing.Font("Bauhaus 93", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label3.Location = new System.Drawing.Point(799, 172);
+            this.label3.Location = new System.Drawing.Point(921, 172);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(275, 34);
             this.label3.TabIndex = 23;
@@ -349,7 +355,7 @@
             this.label4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label4.Font = new System.Drawing.Font("Bauhaus 93", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label4.Location = new System.Drawing.Point(160, 172);
+            this.label4.Location = new System.Drawing.Point(224, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(209, 34);
             this.label4.TabIndex = 24;
@@ -365,12 +371,84 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Bauhaus 93", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(1051, 639);
+            this.guna2Button1.Location = new System.Drawing.Point(1273, 765);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
             this.guna2Button1.TabIndex = 25;
             this.guna2Button1.Text = "Confirmar compra";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label5.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label5.Location = new System.Drawing.Point(859, 237);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 26);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Origem";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label6.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label6.Location = new System.Drawing.Point(126, 237);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 26);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Origem";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label7.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label7.Location = new System.Drawing.Point(127, 330);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 26);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Destino";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label8.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label8.Location = new System.Drawing.Point(128, 455);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(145, 26);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "Hora do Voo:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label9.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label9.Location = new System.Drawing.Point(859, 446);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(145, 26);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Hora do Voo:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label10.Font = new System.Drawing.Font("Bauhaus 93", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label10.Location = new System.Drawing.Point(859, 330);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 26);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Destino";
             // 
             // reciboForms
             // 
@@ -378,7 +456,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::_DigiAirlines.Properties.Resources.bibhash_polygon_cafe_banerjee_DjuV94_esTc_unsplash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1290, 705);
+            this.ClientSize = new System.Drawing.Size(1465, 822);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -446,5 +530,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

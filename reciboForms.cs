@@ -76,8 +76,11 @@ namespace _DigiAirlines
             lblDataVolta.Visible = false;
             lblHrVooVolta.Visible = false;
             lblClasseVolta.Visible = false;
-            // guna2PictureBox3.Visible = false;
-            // guna2CirclePictureBox2.Visible = false;
+            label3.Visible = false;
+            label9.Visible = false;
+            label10.Visible = false;
+            guna2PictureBox3.Visible = false;
+            guna2CirclePictureBox2.Visible = false;
 
             try
             {
@@ -166,8 +169,11 @@ namespace _DigiAirlines
                 lblDataVolta.Visible = true;
                 lblHrVooVolta.Visible = true;
                 lblClasseVolta.Visible = true;
-                // guna2PictureBox3.Visible = true;
-                // guna2CirclePictureBox2.Visible = true;
+                label3.Visible = true;
+                label9.Visible = true;
+                label10.Visible = true;
+                guna2PictureBox3.Visible = true;
+                guna2CirclePictureBox2.Visible = true;
 
                 lblOrigemVolta.Text = _origemVolta;
                 lblDestinoVolta.Text = _destinoVolta;
