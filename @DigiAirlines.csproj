@@ -278,5 +278,8 @@
   <ItemGroup>
     <None Include="Resources\purple-aesthetic-sunset-sky-over-ocean-waves-gwhfuglsilu63769.JPG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aesthetic-beach-sunset-desktop-jlpy9rcnnb4iwphq.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

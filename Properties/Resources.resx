@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="35896-3840x2160-desktop-4k-singapore-background (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\35896-3840x2160-desktop-4k-singapore-background (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="seta-direita1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seta-direita1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pexels-zoedoingthings-1006965" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pexels-zoedoingthings-1006965.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wp4728074-airplane-aesthetic-wallpapers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wp4728074-airplane-aesthetic-wallpapers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,8 +142,14 @@
   <data name="seta-direita2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seta-direita2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wp13404255-aesthetic-sunset-phone-wallpapers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wp13404255-aesthetic-sunset-phone-wallpapers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="seta-direita" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\seta-direita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="purple-aesthetic-sunset-sky-over-ocean-waves-gwhfuglsilu63769" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\purple-aesthetic-sunset-sky-over-ocean-waves-gwhfuglsilu63769.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user-icon-on-transparent-background-free-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-icon-on-transparent-background-free-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,8 +160,8 @@
   <data name="ChatGPT_Image_5_05_2025__16_02_23-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChatGPT_Image_5_05_2025__16_02_23-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="32736-1920x1200-desktop-hd-india-background-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\32736-1920x1200-desktop-hd-india-background-image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pexels-zoedoingthings-1006965" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pexels-zoedoingthings-1006965.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wp3698957-flights-wallpapers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wp3698957-flights-wallpapers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,25 +169,22 @@
   <data name="pexels-zoedoingthings-1006965_resized" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pexels-zoedoingthings-1006965_resized.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="data-center-775ta0o0wf4nbyq3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\data-center-775ta0o0wf4nbyq3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bibhash-polygon-cafe-banerjee-DjuV94_esTc-unsplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bibhash-polygon-cafe-banerjee-DjuV94_esTc-unsplash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="35896-3840x2160-desktop-4k-singapore-background (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\35896-3840x2160-desktop-4k-singapore-background (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="32736-1920x1200-desktop-hd-india-background-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32736-1920x1200-desktop-hd-india-background-image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="seta-direita" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\seta-direita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="data-center-775ta0o0wf4nbyq3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\data-center-775ta0o0wf4nbyq3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wp13404255-aesthetic-sunset-phone-wallpapers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wp13404255-aesthetic-sunset-phone-wallpapers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="free-exit-icon-2860-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\free-exit-icon-2860-thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="purple-aesthetic-sunset-sky-over-ocean-waves-gwhfuglsilu63769" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\purple-aesthetic-sunset-sky-over-ocean-waves-gwhfuglsilu63769.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="aesthetic-beach-sunset-desktop-jlpy9rcnnb4iwphq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aesthetic-beach-sunset-desktop-jlpy9rcnnb4iwphq.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

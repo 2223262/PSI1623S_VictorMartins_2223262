@@ -93,6 +93,16 @@ namespace _DigiAirlines.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap aesthetic_beach_sunset_desktop_jlpy9rcnnb4iwphq {
+            get {
+                object obj = ResourceManager.GetObject("aesthetic-beach-sunset-desktop-jlpy9rcnnb4iwphq", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bibhash_polygon_cafe_banerjee_DjuV94_esTc_unsplash {
             get {
                 object obj = ResourceManager.GetObject("bibhash-polygon-cafe-banerjee-DjuV94_esTc-unsplash", resourceCulture);

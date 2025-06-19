@@ -21,14 +21,10 @@ namespace _DigiAirlines
         private DateTime _dataCompra;
         private decimal _precoTotal;
         private string _classe;
-
-        // Dados da Ida
         private string _origemIda;
         private string _destinoIda;
         private DateTime _dataViagemIda;
         private string _horaVooIda;
-
-        // Dados da Volta
         private bool _temViagemDeVolta = false;
         private string _origemVolta;
         private string _destinoVolta;
@@ -51,6 +47,11 @@ namespace _DigiAirlines
         }
 
         private void ReciboForms_Load(object sender, EventArgs e)
+        {
+            // Este evento foi movido para o construtor, pode ser deixado em branco ou removido
+        }
+
+        private void reciboForms_Load(object sender, EventArgs e)
         {
             if (_reservaId > 0)
             {
@@ -77,6 +78,7 @@ namespace _DigiAirlines
             lblHrVooVolta.Visible = false;
             lblClasseVolta.Visible = false;
             label3.Visible = false;
+            label5.Visible = false;
             label9.Visible = false;
             label10.Visible = false;
             guna2PictureBox3.Visible = false;
@@ -105,34 +107,27 @@ namespace _DigiAirlines
 
                         if (reader.Read())
                         {
-                            // --- Armazenar todos os dados nas variáveis da classe ---
                             _nomeCliente = reader["NomeCliente"].ToString();
                             _dataCompra = Convert.ToDateTime(reader["DataCompra"]);
                             _classe = reader["Classe"].ToString();
-
-                            // Dados da Ida
-                            _origemIda = $"{reader["CidadeOrigem"]}, {reader["PaisOrigem"]}";
-                            _destinoIda = $"{reader["CidadeDestino"]}, {reader["PaisDestino"]}";
+                            _origemIda = $"{reader["CidadeOrigem"]} - {reader["PaisOrigem"]}";
+                            _destinoIda = $"{reader["CidadeDestino"]} - {reader["PaisDestino"]}";
                             _dataViagemIda = Convert.ToDateTime(reader["DataViagem"]);
                             _horaVooIda = new TimeSpan(random.Next(8, 22), random.Next(0, 12) * 5, 0).ToString(@"hh\:mm");
-
                             decimal precoBaseIda = reader["PrecoIda"] != DBNull.Value ? Convert.ToDecimal(reader["PrecoIda"]) : 0;
                             _precoTotal = CalcularPrecoComClasse(precoBaseIda, _classe);
 
-                            // Dados da Volta (se existir)
                             if (reader["DataRetorno"] != DBNull.Value)
                             {
                                 _temViagemDeVolta = true;
-                                _origemVolta = _destinoIda; // Origem da volta é o destino da ida
-                                _destinoVolta = _origemIda; // Destino da volta é a origem da ida
+                                _origemVolta = _destinoIda;
+                                _destinoVolta = _origemIda;
                                 _dataViagemVolta = Convert.ToDateTime(reader["DataRetorno"]);
-                                _horaVooVolta = new TimeSpan(random.Next(8, 22), random.Next(0, 12) * 5, 0).ToString(@"hh\:mm");
-
+                                _horaVooVolta = new TimeSpan(random.Next(0, 24), random.Next(0, 60), 0).ToString(@"hh\:mm");
                                 decimal precoBaseVolta = reader["PrecoVolta"] != DBNull.Value ? Convert.ToDecimal(reader["PrecoVolta"]) : 0;
                                 _precoTotal += CalcularPrecoComClasse(precoBaseVolta, _classe);
                             }
 
-                            // --- Agora, preencher os labels com os dados armazenados ---
                             PreencherLabels();
                         }
                         else
@@ -155,7 +150,6 @@ namespace _DigiAirlines
             lblNomeUtilizador.Text = _nomeCliente;
             lblDataCompra.Text = _dataCompra.ToString("dd/MM/yyyy HH:mm");
             lblDataCabecario.Text = _dataCompra.ToString("dd/MM/yyyy");
-
             lblOrigem.Text = _origemIda;
             lblDestino.Text = _destinoIda;
             lblData.Text = _dataViagemIda.ToString("dd/MM/yyyy");
@@ -170,6 +164,7 @@ namespace _DigiAirlines
                 lblHrVooVolta.Visible = true;
                 lblClasseVolta.Visible = true;
                 label3.Visible = true;
+                label5.Visible = true;
                 label9.Visible = true;
                 label10.Visible = true;
                 guna2PictureBox3.Visible = true;
@@ -186,23 +181,21 @@ namespace _DigiAirlines
             lblTotal.Text = _precoTotal.ToString("C", culturaEuro);
         }
 
-        // --- NOVO MÉTODO PARA O BOTÃO ---
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e) // Confirmar e Salvar Recibo
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 saveFileDialog.Filter = "Ficheiro de Texto|*.txt";
                 saveFileDialog.Title = "Salvar Recibo da Reserva";
-                saveFileDialog.FileName = $"Recibo_Reserva_{_reservaId}.txt"; // Sugere um nome de ficheiro
+                saveFileDialog.FileName = $"Recibo_Reserva_{_reservaId}.txt";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        // Constrói o conteúdo do ficheiro de texto
                         StringBuilder sb = new StringBuilder();
                         sb.AppendLine("*************************************");
-                        sb.AppendLine("* RECIBO - DIGIAIRLINES        *");
+                        sb.AppendLine("* RECIBO - DIGIAIRLINES             *");
                         sb.AppendLine("*************************************");
                         sb.AppendLine();
                         sb.AppendLine($"Cliente: {_nomeCliente}");
@@ -237,7 +230,6 @@ namespace _DigiAirlines
                         sb.AppendLine();
                         sb.AppendLine("Obrigado por voar com a DigiAirlines!");
 
-                        // Grava o conteúdo no ficheiro escolhido pelo utilizador
                         File.WriteAllText(saveFileDialog.FileName, sb.ToString());
 
                         MessageBox.Show("Recibo salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -250,45 +242,28 @@ namespace _DigiAirlines
             }
         }
 
-        private void reciboForms_Load(object sender, EventArgs e)
+        // --- NOVO MÉTODO PARA O BOTÃO CANCELAR RESERVA ---
+        private void guna2Button2_Click(object sender, EventArgs e)
         {
+            // Pede confirmação antes de fechar o recibo e voltar ao menu
+            var confirmResult = MessageBox.Show("Tem a certeza que deseja fechar o recibo e voltar ao menu principal?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (confirmResult == DialogResult.Yes)
+            {
+                // Simplesmente fecha o formulário do recibo. O controlo voltará ao menu.
+                this.Close();
+            }
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanelRecibo_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDestinoVolta_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        #region Outros Eventos Vazios
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e) { }
+        private void flowLayoutPanelRecibo_Paint(object sender, PaintEventArgs e) { }
+        private void guna2PictureBox4_Click(object sender, EventArgs e) { }
+        private void guna2PictureBox4_Click_1(object sender, EventArgs e) { }
+        private void guna2PictureBox2_Click(object sender, EventArgs e) { }
+        private void lblDestinoVolta_Click(object sender, EventArgs e) { }
+        private void label5_Click(object sender, EventArgs e) { }
+        #endregion
     }
 }
