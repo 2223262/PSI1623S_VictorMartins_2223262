@@ -30,7 +30,6 @@ namespace _DigiAirlines
                 return;
             }
 
-            // Query para buscar nome, perfil e a senha atual
             string query = @"SELECT c.Nome, c.Senha, p.Descricao AS Perfil 
                              FROM Cliente c 
                              JOIN Perfil p ON c.PerfilId = p.Id 
@@ -46,11 +45,9 @@ namespace _DigiAirlines
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        // Preenche os labels com os dados do perfil
                         label3.Text = reader["Nome"].ToString();
                         label5.Text = reader["Perfil"].ToString();
 
-                        // Preenche o TextBox da senha atual e torna-o ReadOnly
                         guna2TextBox1.Text = reader["Senha"].ToString();
                         guna2TextBox1.ReadOnly = true;
                     }
@@ -62,19 +59,15 @@ namespace _DigiAirlines
             }
         }
 
-        // Evento para o botão "Salvar Alterações" (agora guna2Button2)
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             
         }
 
-        // Evento para o botão "Fechar" (agora guna2Button1)
         private void guna2Button1_Click(object sender, EventArgs e)
         {
            
         }
-
-        // Seus outros métodos (podem ser deixados em branco)
         private void guna2Separator1_Click(object sender, EventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
         private void label3_Click(object sender, EventArgs e) { }
@@ -90,7 +83,6 @@ namespace _DigiAirlines
             string novaSenha = guna2TextBox2.Text;
             string confirmarNovaSenha = guna2TextBox3.Text;
 
-            // Se o utilizador não preencheu os campos de nova senha, não faz nada
             if (string.IsNullOrWhiteSpace(novaSenha) && string.IsNullOrWhiteSpace(confirmarNovaSenha))
             {
                 MessageBox.Show("Nenhuma nova senha foi introduzida. Nenhuma alteração foi feita.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,18 +111,17 @@ namespace _DigiAirlines
             // --- Lógica de Alteração ---
             try
             {
-                // Como não estamos mais a verificar a senha antiga, vamos direto para o UPDATE
                 using (SqlConnection conn = new SqlConnection(connString))
                 using (SqlCommand cmd = new SqlCommand("UPDATE Cliente SET Senha = @novaSenha WHERE Id = @clienteId", conn))
                 {
-                    cmd.Parameters.AddWithValue("@novaSenha", novaSenha); // NOTA: Em produção, usar HASH aqui
+                    cmd.Parameters.AddWithValue("@novaSenha", novaSenha);
                     cmd.Parameters.AddWithValue("@clienteId", clienteId);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
 
                 MessageBox.Show("Senha alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Fecha o formulário após o sucesso
+                this.Close();
             }
             catch (Exception ex)
             {

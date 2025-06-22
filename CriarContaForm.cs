@@ -13,11 +13,11 @@ namespace _DigiAirlines
             InitializeComponent();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e) // Botão "Criar"
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-            string nomeCliente = textBoxUsername.Text.Trim(); // Assumindo que o username é o Nome do Cliente
+            string nomeCliente = textBoxUsername.Text.Trim();
             string password = textBoxPassword.Text;
-            int perfilIdPadrao = 1; // Ex: Perfil "Passageiro" por defeito
+            int perfilIdPadrao = 1; 
 
             if (string.IsNullOrEmpty(nomeCliente) || string.IsNullOrEmpty(password))
             {
@@ -28,7 +28,6 @@ namespace _DigiAirlines
 
             try
             {
-                // 1. Verificar se o Nome do Cliente (username) já existe
                 using (SqlConnection connCheck = new SqlConnection(connString))
                 {
                     using (SqlCommand cmdCheck = new SqlCommand("SELECT COUNT(*) FROM Cliente WHERE Nome = @nomeCliente", connCheck))
@@ -45,15 +44,13 @@ namespace _DigiAirlines
                     }
                 }
 
-                // 2. Inserir o novo cliente
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
-                    // Inserir na tabela Cliente
                     using (var cmd = new SqlCommand(
                         "INSERT INTO Cliente (Nome, Senha, PerfilId) VALUES (@nomeCliente, @senha, @perfilId)", conn))
                     {
                         cmd.Parameters.AddWithValue("@nomeCliente", nomeCliente);
-                        cmd.Parameters.AddWithValue("@senha", password); // Lembre-se de usar hash em produção!
+                        cmd.Parameters.AddWithValue("@senha", password); 
                         cmd.Parameters.AddWithValue("@perfilId", perfilIdPadrao);
 
                         conn.Open();
@@ -90,7 +87,7 @@ namespace _DigiAirlines
             }
         }
 
-        // Métodos não utilizados do seu ficheiro original
+    
         private void guna2PictureBox1_Click(object sender, EventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
     }

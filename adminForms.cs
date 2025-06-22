@@ -89,8 +89,6 @@ namespace _DigiAirlines
             flowLayoutPanel1.Controls.Add(CriarLabelEstatistica($"Total de Destinos Disponíveis: {totalDestinos}"));
         }
 
-        // --- MÉTODOS AUXILIARES ---
-
         private void DefinirVisibilidadeBotoesAcao(bool visivel)
         {
             guna2Button4.Visible = visivel;
@@ -195,14 +193,10 @@ namespace _DigiAirlines
             return new Label { Text = texto, Font = new Font("Segoe UI", 12), AutoSize = true, Margin = new Padding(10, 5, 10, 5) };
         }
 
-        // --- EVENTOS DE CLIQUE DOS BOTÕES DE NAVEGAÇÃO ---
-
         private void guna2ButtonGerirClientes_Click(object sender, EventArgs e) { CarregarClientes(); }
         private void guna2Button1_Click(object sender, EventArgs e) { CarregarDestinos(); }
         private void guna2Button2_Click(object sender, EventArgs e) { CarregarReservas(); }
         private void guna2Button3_Click(object sender, EventArgs e) { CarregarEstatisticas(); }
-
-        // --- EVENTOS DE CLIQUE DOS BOTÕES DE AÇÃO ---
 
         private void guna2Button4_Click(object sender, EventArgs e) // ACRESCENTAR
         {
@@ -266,7 +260,6 @@ namespace _DigiAirlines
             var confirmResult = MessageBox.Show("Tem a certeza que deseja apagar o registo selecionado permanentemente?", "Confirmar Eliminação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmResult != DialogResult.Yes) return;
 
-            // A coluna de ID pode ter nomes diferentes ("Id", "ReservaID") dependendo da query
             string idColumnName = dgvPrincipal.Columns.Contains("Id") ? "Id" : "ReservaID";
             int idParaApagar = Convert.ToInt32(dgvPrincipal.SelectedRows[0].Cells[idColumnName].Value);
 
@@ -290,18 +283,13 @@ namespace _DigiAirlines
             }
         }
 
-        // --- NOVO EVENTO PARA O BOTÃO VOLTAR/LOGOUT ---
         private void guna2Button7_Click(object sender, EventArgs e)
         {
-            // Pede confirmação para fazer logout
             var confirmResult = MessageBox.Show("Tem a certeza que deseja terminar a sessão e voltar ao ecrã de login?", "Confirmar Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
             {
-                // Esconde o formulário de admin
                 this.Hide();
-
-                // Cria uma nova instância do formulário de login e mostra-a
                 Login formLogin = new Login();
                 formLogin.Show();
             }
@@ -309,13 +297,8 @@ namespace _DigiAirlines
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
 
-        // --- LÓGICA DE FECHO DO FORMULÁRIO ATUALIZADA ---
         private void adminForms_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Este evento é acionado quando o formulário é fechado (pelo 'X' ou por código)
-            // Se o utilizador fechar a janela pelo "X", queremos que a aplicação termine por completo
-            // Mas se ele clicou no botão de logout, o form de login já estará visível.
-
             bool loginFormIsOpen = false;
             foreach (Form form in Application.OpenForms)
             {

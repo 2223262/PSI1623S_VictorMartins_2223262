@@ -48,7 +48,7 @@ namespace _DigiAirlines
 
         private void ReciboForms_Load(object sender, EventArgs e)
         {
-            // Este evento foi movido para o construtor, pode ser deixado em branco ou removido
+
         }
 
         private void reciboForms_Load(object sender, EventArgs e)
@@ -71,7 +71,6 @@ namespace _DigiAirlines
 
         private void CarregarEExibirDados()
         {
-            // Esconder controlos da volta por defeito
             lblOrigemVolta.Visible = false;
             lblDestinoVolta.Visible = false;
             lblDataVolta.Visible = false;
@@ -181,7 +180,7 @@ namespace _DigiAirlines
             lblTotal.Text = _precoTotal.ToString("C", culturaEuro);
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e) // Confirmar e Salvar Recibo
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
@@ -242,15 +241,13 @@ namespace _DigiAirlines
             }
         }
 
-        // --- NOVO MÉTODO PARA O BOTÃO CANCELAR RESERVA ---
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            // Pede confirmação antes de fechar o recibo e voltar ao menu
+           
             var confirmResult = MessageBox.Show("Tem a certeza que deseja fechar o recibo e voltar ao menu principal?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
             {
-                // Simplesmente fecha o formulário do recibo. O controlo voltará ao menu.
                 this.Close();
             }
         }

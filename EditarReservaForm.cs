@@ -47,7 +47,6 @@ namespace _DigiAirlines
                         vooId = Convert.ToInt32(reader["VooId"]);
                         classeOriginal = reader["Classe"].ToString();
 
-                        // Usa os nomes dos controlos do seu designer
                         label3.Text = $"Voo: {reader["CidadeOrigem"]} -> {reader["CidadeDestino"]}";
 
                         guna2ComboBox1.Items.Clear();
@@ -56,10 +55,6 @@ namespace _DigiAirlines
 
                         guna2DateTimePicker1.Value = Convert.ToDateTime(reader["DataViagem"]);
                         guna2DateTimePicker1.MinDate = DateTime.Today;
-
-                        // Se você tiver um label para a taxa (ex: label4), pode descomentar a linha abaixo
-                        // decimal taxaEdicao = custoOriginal * 0.70m;
-                        // label4.Text = $"Taxa de Edição: {taxaEdicao.ToString("C", new CultureInfo("pt-PT"))}";
                     }
                 }
             }
@@ -70,13 +65,11 @@ namespace _DigiAirlines
             }
         }
 
-        // Evento para o botão "Confirmar Alterações"
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             
         }
 
-        // Evento para o botão "Cancelar"
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -104,7 +97,6 @@ namespace _DigiAirlines
             string novaClasse = guna2ComboBox1.SelectedItem.ToString();
             DateTime novaData = guna2DateTimePicker1.Value.Date;
 
-            // Vamos recalcular o custo e a taxa antes de confirmar
             try
             {
                 // Recalcula o custo original para ter certeza

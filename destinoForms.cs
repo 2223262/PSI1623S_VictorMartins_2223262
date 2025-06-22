@@ -14,12 +14,8 @@ namespace _DigiAirlines
         {
             InitializeComponent();
 
-            // --- CORREÇÃO DO BUG AQUI ---
-            // Garante que os controlos de ida e volta começam escondidos.
             guna2DateTimePicker1.Visible = false;
-            label5.Visible = false; // Supondo que label5 é o título para a data de volta
-
-            // Opcional: Manter os outros controlos escondidos no início também
+            label5.Visible = false;
             label4.Visible = false;
             guna2ComboBox1.Visible = false;
             searchResult.Visible = false;
@@ -36,19 +32,12 @@ namespace _DigiAirlines
             }
         }
 
-        // --- LÓGICA DO CHECKBOX ---
-        // Este método controla a visibilidade dos controlos de ida e volta
         private void guna2CustomCheckBox1_Click(object sender, EventArgs e)
         {
-            // A propriedade 'Checked' do checkbox vai determinar se os controlos ficam visíveis
             bool viagemDeVolta = guna2CustomCheckBox1.Checked;
-
             guna2DateTimePicker1.Visible = viagemDeVolta;
             label5.Visible = viagemDeVolta;
         }
-
-
-        // --- Resto do seu código (sem alterações) ---
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -174,8 +163,8 @@ namespace _DigiAirlines
             label4.Visible = true;
             guna2ComboBox1.Visible = true;
         }
-        private void DateTimePicker1_ValueChanged(object sender, EventArgs e) { /* Validação de data, se houver */ }
-        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e) { /* Validação de data, se houver */ }
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e) { }
+        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e) { }
         #endregion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }

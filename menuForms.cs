@@ -78,9 +78,7 @@ namespace _DigiAirlines
             lblRelogioReal.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
-        // --- EVENTOS DE CLIQUE PARA OS BOTÕES DO MENU (ATUALIZADOS) ---
-
-        private void guna2Button1_Click(object sender, EventArgs e) // Nova Reserva
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
 
         }
@@ -88,32 +86,29 @@ namespace _DigiAirlines
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             destinoForms formReservas = new destinoForms();
-            this.Hide(); // Esconde o menu atual
+            this.Hide(); 
             formReservas.FormClosed += (s, args) => this.Show();
             formReservas.ShowDialog();
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e) // Minhas Reservas
+        private void guna2Button2_Click(object sender, EventArgs e) 
         {
-            // Esconde o menu, mostra o histórico, e quando o histórico for fechado, o menu volta a aparecer.
-            this.Hide();
 
-            // Nota: Se o seu formulário de histórico se chamar 'minhasReservasForms', altere o nome da classe abaixo.
+            this.Hide();
             minhasReservasForms formHistorico = new minhasReservasForms();
             formHistorico.FormClosed += (s, args) => this.Show(); // Adiciona um evento para mostrar o menu quando o histórico fechar
             formHistorico.Show();
         }
 
-        private void guna2Button3_Click(object sender, EventArgs e) // Meu Perfil
+        private void guna2Button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            // Abre o novo formulário para o perfil do utilizador.
             meuPerfilForms formPerfil = new meuPerfilForms();
-            formPerfil.FormClosed += (s, args) => this.Show(); // Adiciona um evento para mostrar o menu quando o perfil fechar
+            formPerfil.FormClosed += (s, args) => this.Show(); 
             formPerfil.ShowDialog();
         }
 
-        private void guna2Button4_Click(object sender, EventArgs e) // Sair
+        private void guna2Button4_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show("Tem a certeza que deseja fechar a aplicação?", "Confirmar Saída", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 

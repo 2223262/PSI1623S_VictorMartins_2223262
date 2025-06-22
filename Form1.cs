@@ -46,25 +46,22 @@ namespace _DigiAirlines
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (reader.Read()) // Se um cliente for encontrado
+                    if (reader.Read())
                     {
                         ClienteLogadoId = Convert.ToInt32(reader["Id"]);
                         ClienteLogadoPerfilId = Convert.ToInt32(reader["PerfilId"]);
 
                         reader.Close();
-                        this.Hide(); // Esconde o formulário de login
+                        this.Hide();
 
-                        // --- LÓGICA DE DIRECIONAMENTO ATUALIZADA ---
                         if (ClienteLogadoPerfilId == 2) // O ID 2 é para 'Admin'
                         {
-                            // Se for Admin, abre o adminForms
                             MessageBox.Show("Bem-vindo, Admin!", "Login de Administrador", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             adminForms painelAdmin = new adminForms();
                             painelAdmin.Show();
                         }
                         else
                         {
-                            // Se for um utilizador normal, abre o novo menuForms
                             menuForms formMenu = new menuForms();
                             formMenu.Show();
                         }
